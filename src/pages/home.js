@@ -17,7 +17,7 @@ class ZipInput extends Component {
   
     handleChange(event) {
       var newValue = event.target.value.replace(/[^0-9]/, '');
-      var enabled = (newValue.length == 5)
+      var enabled = (newValue.length === 5)
       this.setState({ zip: newValue, buttonEnabled: enabled });
     }
   
@@ -70,8 +70,8 @@ class ZipInput extends Component {
       const stateOptions = state_list.map((s) => (<option value={s.id}>{s.name}</option>));
   
       var goButton = (<button>Go</button>);
-      if (this.state.stateId != -1) {
-        if (this.state.placeId != -1) {
+      if (this.state.stateId !== -1) {
+        if (this.state.placeId !== -1) {
           goButton = (<Link to={'/s/' + this.state.stateId + '/p/' + this.state.placeId}><button>Go</button></Link>);
         } else {
           goButton = (<Link to={'/s/' + this.state.stateId}><button>Go</button></Link>);
