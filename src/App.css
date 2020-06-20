@@ -1,0 +1,65 @@
+
+#mainLayoutWrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.centeredSubContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.clearfix {
+  clear: both;
+  float: none;
+}
+
+h2 { text-align: center;}
+
+/*
+    Stat Panel
+*/
+
+.statPanel  {
+  float: left;
+  width: 50%
+}
+
+.raceLabel {
+  font-size: 2em;
+  text-align: center;
+}
+
+.mainStat {
+  font-size: 4em;
+  text-align: center;
+}
+
+.marginOfError {
+  text-align: center;
+}
+
+/*
+    Footer
+*/
+
+.footerNavLinks li {
+  list-style-type: none;
+  margin: 1.5em;
+  text-align: center;
+}
+
+.footerSocialButtonList {
+  margin: auto;
+}
+
+.footerSocialButtonList li {
+  float: left;
+  list-style-type: none;
+  margin: 1.5em;
+}
+
+.footerAcknowledgement {
+  text-align: center;
+}
