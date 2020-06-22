@@ -1,4 +1,7 @@
 {
-  "route": "/*",
-  "serve": "/index.html"
+    "routes": [
+        {
+            "route": "/*"
+        }
+    ]
 }
