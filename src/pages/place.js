@@ -1,35 +1,44 @@
-import React, {Component}  from 'react';
+import React, { Component } from 'react';
 import StatSummary from '../components/stat_summary';
-import getCensusData from './census_api';
+import getCensusData from '../components/census_api';
+import { Helmet } from 'react-helmet';
 
 class Place extends Component {
-    constructor(props) {
-      super(props);
-  
-      this.state = {
-        state: props.match.params.state,
-        place: props.match.params.place,
-        stats: {},
-        ready: false
-      };
-    }
-  
-    componentDidMount() {
-      getCensusData('place:' + this.state.place, 'state:' + this.state.state).then((response) => {
-        this.setState({ state: this.state.state, place: this.state.place, stats: response, ready:true })
-      });
-    }
-    render() {
-      if (this.state.ready){
-        return (
-        <div>
-          <h1>Economic disparity in {this.state.stats.name}</h1>
-          <StatSummary stats={this.state.stats} />
-        </div>);
-      }else{
-        return <div>Waiting...</div>
-      }
-    }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      state: props.match.params.state,
+      place: props.match.params.place,
+      stats: {},
+      ready: false,
+      onError: props.onError
+    };
   }
 
-  export default Place;
+  componentDidMount() {
+    getCensusData('place:' + this.state.place, 'state:' + this.state.state).then((response) => {
+      this.setState({ state: this.state.state, place: this.state.place, stats: response, ready: true })
+    }).catch((error) => {
+      this.state.onError(error);
+    });
+  }
+  render() {
+    if (this.state.ready) {
+      return (
+        <>
+          <Helmet>
+            <title>iimby.net - Inequality in {this.state.stats.name}</title>
+          </Helmet>
+          <div>
+            <h1>Inequality in {this.state.stats.name}</h1>
+            <StatSummary stats={this.state.stats} />
+          </div>
+        </>);
+    } else {
+      return <div>Waiting...</div>
+    }
+  }
+}
+
+export default Place;

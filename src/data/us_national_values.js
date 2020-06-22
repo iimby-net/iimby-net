@@ -19,7 +19,15 @@ whiteMedianIncomeMoE: 126,
 blackMeanIncome: 22237,
 blackMeanIncomeMoE: 83,
 whiteMeanIncome: 35758,
-whiteMeanIncomeMoE: 97
+whiteMeanIncomeMoE: 97,
+blackBroadbandAccess: 0.822,
+blackBroadbandAccessMoE: 0.002,
+whiteBroadbandAccess: 0.89,
+whiteBroadbandAccessMoE: 0.001,
+blackComputerAccess: 0.08,
+blackComputerAccessMoE: 0.001,
+whiteComputerAccess: 0.05,
+whiteComputerAccessMoE: 0.001
 }
 
 export default us_national_values;
