@@ -31,7 +31,6 @@ function App() {
     <div class="mainLayoutWrapper">
       <Helmet>
         <title>iimby.net - Inequality In My Backyard</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Helmet>
       <Router>
         <TelemetryProvider instrumentationKey="885554b6-0860-4ec5-a67b-120a9a75b93c" after={() => { appInsights = getAppInsights() }}>
