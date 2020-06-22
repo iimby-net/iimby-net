@@ -51,15 +51,15 @@ function BasePanel(props) {
     }
   
     return (
-      <div>
-        <h2>{props.title}</h2>
-        <div class="centeredSubContainer">
-          <div class="statPanel">
+      <div class="basePanel">
+        <h2 class="panelTitle">{props.title}</h2>
+        <div class="centeredSubContainer row">
+          <div class="statPanel fcol-6">
             <p class="raceLabel">Black</p>
             <p class="mainStat">{blackValue}</p>
             <p class="marginOfError">+/- {blackMoE}</p>
           </div>
-          <div class="statPanel">
+          <div class="statPanel fcol-6">
             <p class="raceLabel">White</p>
             <p class="mainStat">{whiteValue}</p>
             <p class="marginOfError">+/- {whitMoE}</p>

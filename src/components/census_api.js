@@ -31,8 +31,19 @@ const blackMeanIncomeMoE = "S1902_C03_021M";
 const whiteMeanIncome = "S1902_C03_020E";
 const whiteMeanIncomeMoE = "S1902_C03_020M";
 
+// TableID: 2802
+// https://api.census.gov/data/2018/acs/acs5/subject/groups/S2802.html
+const blackBroadbandAccess = "S2802_C03_006E";
+const blackBroadbandAccessMoE = "S2802_C03_006M";
+const whiteBroadbandAccess = "S2802_C03_005E";
+const whiteBroadbandAccessMoE = "S2802_C03_005M";
 
-const allCodes = "S1903_C01_003E,S1903_C01_003M,S1903_C01_002E,S1903_C01_002M,S1701_C03_014E,S1701_C03_014M,S1701_C03_013E,S1701_C03_013M,S2301_C04_013E,S2301_C04_013M,S2301_C04_012E,S2301_C04_012M,S1903_C03_003E,S1903_C03_003M,S1903_C03_002E,S1903_C03_002M,S1902_C03_021E,S1902_C03_021M,S1902_C03_020E,S1902_C03_020M";
+const blackComputerAccess = "S2802_C07_006E";
+const blackComputerAccessMoE = "S2802_C07_006M";
+const whiteComputerAccess = "S2802_C07_005E";
+const whiteComputerAccessMoE = "S2802_C07_005M";
+
+const allCodes = "S1903_C01_003E,S1903_C01_003M,S1903_C01_002E,S1903_C01_002M,S1701_C03_014E,S1701_C03_014M,S1701_C03_013E,S1701_C03_013M,S2301_C04_013E,S2301_C04_013M,S2301_C04_012E,S2301_C04_012M,S1903_C03_003E,S1903_C03_003M,S1903_C03_002E,S1903_C03_002M,S1902_C03_021E,S1902_C03_021M,S1902_C03_020E,S1902_C03_020M,S2802_C03_006E,S2802_C03_006M,S2802_C03_005E,S2802_C03_005M,S2802_C07_006E,S2802_C07_006M,S2802_C07_005E,S2802_C07_005M";
 
 // api key:
 // https://api.census.gov/data/key_signup.html
@@ -50,7 +61,12 @@ function getCensusData(for_value, in_value) {
   } else {
     censusUrl = 'https://api.census.gov/data/2018/acs/acs5/subject?get=NAME,' + allCodes + '&for=' + for_value + '&key=286b869c0a5bcda3783991db3f2c28d8ba489cc4'
   }
-  return fetch(censusUrl, { method: 'GET' }).then((response) => { return response.json() }).then(
+  return fetch(censusUrl, { method: 'GET' }).then((response) => {
+    if (response.status !== 200) {
+      throw new Error(`Census error: ${response.status}: ${response.statusText}: ${censusUrl}`);
+    }
+    return response.json()
+  }).then(
     (responseBody) => {
       var stats = {};
       var i;
@@ -119,6 +135,33 @@ function getCensusData(for_value, in_value) {
           case whiteMeanIncomeMoE:
             stats.whiteMeanIncomeMoE = responseBody[1][i];
             break;
+
+          case blackBroadbandAccess:
+            stats.blackBroadbandAccess = (responseBody[1][i] / 100.0);
+            break;
+          case blackBroadbandAccessMoE:
+            stats.blackBroadbandAccessMoE = (responseBody[1][i] / 100.0);
+            break;
+          case whiteBroadbandAccess:
+            stats.whiteBroadbandAccess = (responseBody[1][i] / 100.0);
+            break;
+          case whiteBroadbandAccessMoE:
+            stats.whiteBroadbandAccessMoE = (responseBody[1][i] / 100.0);
+            break;
+
+          case blackComputerAccess:
+            stats.blackComputerAccess = (responseBody[1][i] / 100.0);
+            break;
+          case blackComputerAccessMoE:
+            stats.blackComputerAccessMoE = (responseBody[1][i] / 100.0);
+            break;
+          case whiteComputerAccess:
+            stats.whiteComputerAccess = (responseBody[1][i] / 100.0);
+            break;
+          case whiteComputerAccessMoE:
+            stats.whiteComputerAccessMoE = (responseBody[1][i] / 100.0);
+            break;
+
           default: break;
         }
       }

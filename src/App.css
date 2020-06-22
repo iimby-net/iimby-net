@@ -1,65 +1,88 @@
-
-#mainLayoutWrapper {
-  max-width: 800px;
-  margin: auto;
+* {
+  box-sizing: border-box;
 }
 
-.centeredSubContainer {
-  display: flex;
+/* For mobile phones: */
+[class*="col-"] {
   width: 100%;
-  justify-content: center;
-}
-
-.clearfix {
-  clear: both;
-  float: none;
-}
-
-h2 { text-align: center;}
-
-/*
-    Stat Panel
-*/
-
-.statPanel  {
   float: left;
-  width: 50%
+}
+
+[class*="fcol-"] {
+  float: left;
+}
+
+.fcol-1 {width: 8.33%;}
+.fcol-2 {width: 16.66%;}
+.fcol-3 {width: 25%;}
+.fcol-4 {width: 33.33%;}
+.fcol-5 {width: 41.66%;}
+.fcol-6 {width: 50%;}
+.fcol-7 {width: 58.33%;}
+.fcol-8 {width: 66.66%;}
+.fcol-9 {width: 75%;}
+.fcol-10 {width: 83.33%;}
+.fcol-11 {width: 91.66%;}
+.fcol-12 {width: 100%;}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.mainLayoutWrapper {
+  width: 100%
+}
+
+h1 { text-align: center;}
+
+.basePanel {
+  padding: 1em;
+}
+
+.panelTitle {
+  text-align: center;
 }
 
 .raceLabel {
-  font-size: 2em;
   text-align: center;
+  font-size: large;
+  font-weight: bold;
 }
 
 .mainStat {
-  font-size: 4em;
   text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 .marginOfError {
   text-align: center;
 }
 
-/*
-    Footer
-*/
+.footerNavLinks {text-align: center;}
 
-.footerNavLinks li {
-  list-style-type: none;
-  margin: 1.5em;
+.socialButtonContainer {
   text-align: center;
 }
 
-.footerSocialButtonList {
-  margin: auto;
-}
-
-.footerSocialButtonList li {
-  float: left;
-  list-style-type: none;
-  margin: 1.5em;
-}
-
-.footerAcknowledgement {
-  text-align: center;
-}
+@media only screen and (min-width: 800px) {
+  /* For desktop: */
+  .mainLayoutWrapper {
+    width: 75%;
+    margin: auto;
+  }
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+} 

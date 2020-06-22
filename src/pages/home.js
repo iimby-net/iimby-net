@@ -97,20 +97,20 @@ class ZipInput extends Component {
   
     return (
       <>
-        <h1>Economic disparity in the neighborhood</h1>
+        <h1>Inequality In My Backyard</h1>
         <div>
-          <h2>Compare economic measurements in a zip code</h2>
+          <h2>How much inequality is there in your zip code?</h2>
           <div>
             <ZipInput />
           </div>
         </div>
         <div>
-          <h2>Compare economic measurements in a state or city</h2>
+          <h2>How much inequality is there in your state or city?</h2>
           <div>
             <PlaceSelector />
           </div>
         </div>
-        <h1>National economic measurements</h1>
+        <h1>Inequality in the US</h1>
         <StatSummary stats={us_national_values} />
       </>);
   }

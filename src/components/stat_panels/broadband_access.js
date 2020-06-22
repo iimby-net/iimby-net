@@ -1,11 +1,11 @@
 import React from 'react';
 import BasePanel from './base_panel'
 
-function PovertyRate(props) {
+function BroadbandAccess(props) {
   return (
     <BasePanel
-      title="Poverty rate"
-      description="Percentage of households falling below the poverty line."
+      title="Broadband access rate"
+      description="The percentage of households with access to broadband internet."
       format="percent"
       white={props.white}
       whiteMoE={props.whiteMoE}
@@ -13,4 +13,4 @@ function PovertyRate(props) {
       blackMoE={props.blackMoE}/>);
 }
 
-export default PovertyRate
+  export default BroadbandAccess;
