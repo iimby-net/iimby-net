@@ -10,33 +10,40 @@ class Place extends Component {
     this.state = {
       state: props.match.params.state,
       place: props.match.params.place,
+      friendlyName: "",
       stats: {},
-      ready: false,
-      onError: props.onError
+      ready: false
     };
   }
 
   componentDidMount() {
-    getCensusData('place:' + this.state.place, 'state:' + this.state.state).then((response) => {
-      this.setState({ state: this.state.state, place: this.state.place, stats: response, ready: true })
-    }).catch((error) => {
-      this.state.onError(error);
-    });
+    getCensusData('place:' + this.state.place, 'state:' + this.state.state).then(
+      (response) => {
+        var friendlyName = response.name.replace(/( city,| zona urbana,)/, ","); 
+
+        this.setState(
+          {
+            friendlyName: friendlyName,
+            stats: response,
+            ready: true
+          })
+      });
   }
+
   render() {
     if (this.state.ready) {
       return (
         <>
           <Helmet>
-            <title>iimby.net - Inequality in {this.state.stats.name}</title>
+            <title>iimby.net - Inequality in {this.state.friendlyName}</title>
           </Helmet>
           <div>
-            <h1>Inequality in {this.state.stats.name}</h1>
+            <h1>Inequality in {this.state.friendlyName}</h1>
             <StatSummary stats={this.state.stats} />
           </div>
         </>);
     } else {
-      return <div>Waiting...</div>
+      return <div>Waiting for Census data ...</div>
     }
   }
 }

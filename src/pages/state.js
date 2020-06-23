@@ -10,18 +10,16 @@ class State extends Component {
     this.state = {
       state: props.match.params.state,
       stats: {},
-      ready: false,
-      onError: props.onError
+      ready: false
     };
   }
 
   componentDidMount() {
     getCensusData('state:' + this.state.state).then((response) => {
       this.setState({ state: this.state.state, stats: response, ready: true })
-    }).catch((error) => {
-      this.state.onError(error);
     });
   }
+
   render() {
     if (this.state.ready) {
       return (
@@ -35,7 +33,7 @@ class State extends Component {
           </div>
         </>);
     } else {
-      return <div>Waiting...</div>
+      return <div>Waiting for Census data ...</div>
     }
   }
 }
