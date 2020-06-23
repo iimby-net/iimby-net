@@ -4,8 +4,7 @@ import BasePanel from './base_panel'
 function BroadbandAccess(props) {
   return (
     <BasePanel
-      title="Broadband access rate"
-      description="The percentage of households with access to broadband internet."
+      title="Households with broadband internet access"
       format="percent"
       white={props.white}
       whiteMoE={props.whiteMoE}

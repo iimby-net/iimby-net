@@ -1,15 +1,9 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { SocialIcon } from 'react-social-icons';
 
 function Footer() {
   return (
-    <div>
-      <div class="footerNavLinks row">
-          <p><Link to="/">Home</Link></p>
-          <p><Link to="/donate">Donate to Black causes</Link></p>
-          <p><Link to="/about">About this site</Link></p>
-      </div>
+    <div class="footerWrapper">
       <div class="row">
         <div class="col-3">&nbsp;</div>
         <div class="col-6">
@@ -26,12 +20,10 @@ function Footer() {
         <div class="col-3">&nbsp;</div>
       </div>
       <div class="row">
-      <div class="col-3">&nbsp;</div>
-        <div class="footerAcknowledgement col-6">
+        <div class="footerAcknowledgement">
           <p>This site is an open source project. Visit us on <a href="https://github.com/iimby-net/iimby-net">github</a> to contribute.</p>
-          <p>This site uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau. The specific dataset used is the 5 year American Communities Survey released in 2018. Visit <a href="https://data.census.gov/cedsci/table?q=United%20States">data.census.gov</a> to explore the data on your own.</p>
+          <p>This site uses the Census Bureau Data API but is not endorsed or certified by the Census Bureau.</p>
         </div>
-        <div class="col-3">&nbsp;</div>
       </div>
     </div >);
 }

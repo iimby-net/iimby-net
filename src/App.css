@@ -31,14 +31,38 @@
   display: table;
 }
 
+body {
+  font-family: Garamond;
+  background-color: white;
+}
+
 .mainLayoutWrapper {
-  width: 100%
+  width: 95%;
+  margin: auto;
+}
+
+.headerPanel {
+  text-align: center;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
 h1 { text-align: center;}
 
 .basePanel {
   padding: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 2em;
+}
+
+.inputPanel {
+  padding: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 2em;
+}
+
+.inputControl {
+  text-align: center;
 }
 
 .panelTitle {
@@ -48,7 +72,6 @@ h1 { text-align: center;}
 .raceLabel {
   text-align: center;
   font-size: large;
-  font-weight: bold;
 }
 
 .mainStat {
@@ -61,16 +84,22 @@ h1 { text-align: center;}
   text-align: center;
 }
 
-.footerNavLinks {text-align: center;}
+.footerAcknowledgement {
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
 
 .socialButtonContainer {
   text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 @media only screen and (min-width: 800px) {
   /* For desktop: */
   .mainLayoutWrapper {
-    width: 75%;
+    width: 800px;
     margin: auto;
   }
   .col-1 {width: 8.33%;}

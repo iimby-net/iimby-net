@@ -52,7 +52,7 @@ function BasePanel(props) {
   
     return (
       <div class="basePanel">
-        <h2 class="panelTitle">{props.title}</h2>
+        <h3 class="panelTitle">{props.title}</h3>
         <div class="centeredSubContainer row">
           <div class="statPanel fcol-6">
             <p class="raceLabel">Black</p>

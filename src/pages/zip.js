@@ -12,18 +12,16 @@ class Zip extends Component {
     this.state = {
       zip: props.match.params.zip,
       stats: {},
-      ready: false,
-      onError: props.onError
+      ready: false
     };
   }
 
   componentDidMount() {
     getCensusData('zip%20code%20tabulation%20area:' + this.state.zip).then((response) => {
       this.setState({ zip: this.state.zip, stats: response, ready: true })
-    }).catch((error) => {
-      this.state.onError(error);
     });
   }
+
   render() {
     if (this.state.ready) {
       return (
@@ -37,7 +35,7 @@ class Zip extends Component {
           </div>
         </>);
     } else {
-      return <div>Waiting...</div>
+      return <div>Waiting for Census data ...</div>
     }
   }
 }
