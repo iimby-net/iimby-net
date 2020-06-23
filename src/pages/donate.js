@@ -1,16 +1,53 @@
 import React from 'react';
 
-function Donate() {
-    return (
+function DonatePanel(props) {
+  return (
+    <div>
+      <h3>{props.title}</h3>
       <div>
-        <h1>Donate to Black causes</h1>
-        <ul>
-          <li><a href="https://blacklivesmatter.com/">Black Lives Matter</a></li>
-          <li><a href="https://eji.org/">Equal Justice Initiative</a></li>
-          <li>More coming very soon. If there's a cause you care about that you suspect we won't find on our own, feel free to send it to us.</li>
-        </ul>
+        {props.children}
       </div>
-    );
-  }
+      <div>
+        <a href={props.cause_url}>Website</a>
+      </div>
+      <di>
+        <a href={props.donate_url}>Donate</a>
+      </di>
+    </div>);
+}
+
+function Donate() {
+  return (
+    <div>
+      <h1>Mitigate the inequality, donate to a cause</h1>
+
+      <DonatePanel
+        title="Black Lives Matter"
+        cause_url="https://blacklivesmatter.com/"
+        donate_url="https://secure.actblue.com/donate/ms_blm_homepage_2019">
+      </DonatePanel>
+      <DonatePanel
+        title="Center for Black Equity"
+        cause_url="https://centerforblackequity.org/"
+        donate_url="https://centerforblackequity.org/donate/#">
+      </DonatePanel>
+      <DonatePanel
+        title="Equal Justice Initiative"
+        cause_url="https://eji.org/"
+        donate_url="https://support.eji.org/give/153413/#!/donation/checkout">
+      </DonatePanel>
+      <DonatePanel
+        title="Marsha P Johnson Institute"
+        cause_url="https://marshap.org/"
+        donate_url="https://marshap.org/donate/">
+      </DonatePanel>
+      <DonatePanel
+        title="NAACP"
+        cause_url="https://www.naacp.org/"
+        donate_url="https://secure.actblue.com/donate/naacp-1">
+      </DonatePanel>
+    </div>
+  );
+}
 
 export default Donate;
